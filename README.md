@@ -11,6 +11,8 @@ nrStates nrTrans InitialState
 nThState FinOrNot  
 state Trans state  -> for all transtions  
 
+### Projects:
+
 1. LFAproject1.py is the first project
     * Two ways of execution:
         1. No graphics -> no terminal arguments
