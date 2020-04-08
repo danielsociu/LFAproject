@@ -1,15 +1,15 @@
-##LFA project
+## LFA project
 
 
 
-###Basically you put input in input.in in this format:
+### Basically you put input in input.in in this format:
 
-nrStates nrTrans InitialState
-1stState Fin(0 or 1)
-2ndState FinOrNot
-.....
-nThState FinOrNot
-state Trans state  -> for all transtions
+nrStates nrTrans InitialState  
+1stState Fin(0 or 1)  
+2ndState FinOrNot  
+.....  
+nThState FinOrNot  
+state Trans state  -> for all transtions  
 
 1. LFAproject1.py is the first project
     * Two ways of execution:
@@ -22,7 +22,7 @@ state Trans state  -> for all transtions
     * Takes the FA and visually transforms it in a RE
 
 
-###Requirements:
+### Requirements:
 1. tkinter(graphics.py) which can be installed by
     * pip install /path-to-tar
     * pip install (-e) /path-to-file
