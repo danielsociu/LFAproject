@@ -184,36 +184,56 @@ class Automata:
             #for newTrans,newSon in son.neighbors.items():
                 
                 
+        iterator=list(stateDeleted.neighbors.items())
 
         #Now we solve the nodes that point to stateDeleted
-        print('##########################')
-        print(list(stateDeleted.fathers.items()))
+        #print('##########################')
+        #print(list(stateDeleted.fathers.items()))
+        #print('##########################')
         print('##########################')
         for father,trans in list(stateDeleted.fathers.items()):
-            print(father.neighbors)
-            for newTrans,newSon in list(stateDeleted.neighbors.items()):
+            print(list(father.neighbors.items()))
+            print(list(stateDeleted.neighbors.items()))
+            print('##########################')
+            for newTrans,newSon in iterator:
                 if newSon==stateDeleted:
                     continue
                 if stateDeleted in stateDeleted.neighbors.values():
-                    finTrans=evaluateTrans1(trans,stateDeleted.fathers[stateDeleted],newTrans)
+                    mid=""
+                    for mytrn,node in stateDeleted.neighbors.items():
+                        if stateDeleted == node:
+                            mid=mid+mytrn
+                    finTrans=evaluateTrans1(trans,mid,newTrans)
                 else:
                     finTrans=evaluateTrans(trans,newTrans)
-                del stateDeleted.neighbors[newTrans]
-                del newSon.fathers[stateDeleted]
+                #del stateDeleted.neighbors[newTrans]
+                #del newSon.fathers[stateDeleted]
+                #print(trans,newTrans)
+                print (finTrans)
                 if father not in newSon.fathers.keys():
                     if finTrans!=None:
+                        print (father.key,newSon.key,self.automataStates)
                         self.addTransition(father.key,finTrans,newSon.key)
+                        print(1)
                 else:
-                    finTrans=evaluateComb(finTrans,newSon.fathers[father])
+                    if finTrans is None:
+                        finTrans=newSon.fathers[father]
+                    else:
+                        finTrans=evaluateComb(finTrans,newSon.fathers[father])
                     del father.neighbors[newSon.fathers[father]]
                     del newSon.fathers[father]
                     if finTrans!=None:
                         self.addTransition(father.key,finTrans,newSon.key)
+                        print(2)
             print('##########################')
-            print (father.neighbors)
-            if father.neighbors[trans]==stateDeleted:
+            #print (father.neighbors)
+            if trans in father.neighbors.keys() and father.neighbors[trans]==stateDeleted:
                 del father.neighbors[trans]
             del stateDeleted.fathers[father]
+        for trans,node in list(stateDeleted.neighbors.items()):
+            del stateDeleted.neighbors[trans]
+            if stateDeleted in node.fathers.keys():
+                del node.fathers[stateDeleted]
         del self.automataStates[stateDeleted.key]
         del stateDeleted
 
@@ -498,7 +518,8 @@ def main():
         welc.setTextColor('white')
         welc.draw(win)
         automat.drawAutomata(win,10)
-        time.sleep(2)
+        win.getMouse()
+        #time.sleep(2)
 
         ############# transforming the FA into EFA:
         automat.makeEFA()
@@ -507,7 +528,8 @@ def main():
         welc.undraw()
         welc.draw(win)
         automat.drawAutomata(win,10)
-        time.sleep(3)
+        win.getMouse()
+        #time.sleep(1)
 
         for nrEliminari in range(automat.n):
             nextDeletion=None
@@ -515,20 +537,23 @@ def main():
                 if selector.key!='F':
                     nextDeletion=selector
             automat.eliminateState(nextDeletion)
+            win.getMouse()
 
+            #time.sleep(1)
             #resetter
-            automat.deplX+=50
+            automat.deplX+=40
             undraw_all(win,automat)
             welc.undraw()
             welc.draw(win)
             automat.drawAutomata(win,10)
-            time.sleep(1.5)
 
         welc.undraw()
         welc.setText("The RE is:")
         welc.move(-100,0)
         welc.draw(win)
         reexp=list(automat.automataStates['S'].neighbors.keys())
+        print("The expression is:")
+        print(reexp[0])
         ans = Text(Point(600,30),reexp[0])
         ans.setSize(20)
         ans.setTextColor('white')
