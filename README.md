@@ -36,5 +36,6 @@ state Trans state  -> for all transtions
 1. tkinter(graphics.py) which can be installed by
     * pip install /path-to-tar
     * pip install (-e) /path-to-file
+1. Python3 please
 1. Recommended to have linux! xD
 
