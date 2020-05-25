@@ -1,0 +1,28 @@
+BEGINTEST
+S A B
+a b c d y z
+S
+S > a<Sb | a<A | <Ab<B
+A > <Ay | <B<Bz
+B > bcd | ε
+ENDTEST
+BEGINTEST
+S A B
+a b x y
+S
+A > xx<Ay | xxy
+B > a<Bb | ab
+ENDTEST
+BEGINTEST
+S B
+a c b
+S
+S > aa<Bb | aa<Sb
+B > b<Bccc | bccc
+ENDTEST
+BEGINTEST
+S
+a b c
+S
+S > a | b | c | <S<S | λ
+ENDTEST
