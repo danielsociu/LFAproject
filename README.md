@@ -22,7 +22,7 @@ state Trans state  -> for all transtions
     * Has the same stuffs as project 1 for terminal arguments
     * To launch project 2 use the terminal argument 2
     * Takes the FA and visually transforms it in a RE
-1. LFAproject3.py the only argument it takes is the file of input
+1. LFAproject3.py (T3 - generate all words based on FCG) the only argument it takes is the file of input
     * Format of input file:
         1. NonTerminals
         1. Terminals
