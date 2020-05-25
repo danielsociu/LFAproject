@@ -29,7 +29,7 @@ state Trans state  -> for all transtions
         1. Initial state
         1. on each line the list of productions under the form NonTerm > Prod1 | Prod2 ... (if one Prod has nonTerm use <NonTerm)
         1. See gramatics.in for examples
-    * The give an n input(number of tests) and the max length for each test
+    * Give an n input(number of tests) and the max length for each test
 
 
 ### Requirements:
