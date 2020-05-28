@@ -22,19 +22,20 @@ state Trans state  -> for all transtions
     * Has the same stuffs as project 1 for terminal arguments
     * To launch project 2 use the terminal argument 2
     * Takes the FA and visually transforms it in a RE
-1. LFAproject3.py the only argument it takes is the file of input
+1. LFAproject3.py (T3 - generate all words based on FCG) the only argument it takes is the file of input
     * Format of input file:
         1. NonTerminals
         1. Terminals
         1. Initial state
         1. on each line the list of productions under the form NonTerm > Prod1 | Prod2 ... (if one Prod has nonTerm use <NonTerm)
         1. See gramatics.in for examples
-    * The give an n input(number of tests) and the max length for each test
+    * Give an n input(number of tests) and the max length for each test
 
 
 ### Requirements:
 1. tkinter(graphics.py) which can be installed by
     * pip install /path-to-tar
     * pip install (-e) /path-to-file
+1. Python3 please
 1. Recommended to have linux! xD
 
