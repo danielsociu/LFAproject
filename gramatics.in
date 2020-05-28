@@ -1,4 +1,26 @@
 BEGINTEST
+S A B C E F D G
+n b e w o x 1 2 e u s m
+S
+S > m<A | b<B
+A > e<C | w
+B > o<D | x
+C > r<E | 2
+E > e<F
+F > u
+D > s<D | s<G
+G > s
+ENDTEST
+BEGINTEST
+S B C D
+a b c d x z w
+S
+S > a<S | b<B | λ
+B > c | d<D | x<C
+C > a<S | x<C | z | c<B
+D > w
+ENDTEST
+BEGINTEST
 S A B
 a b c d y z
 S

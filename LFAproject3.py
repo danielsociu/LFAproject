@@ -55,7 +55,7 @@ class gramaticaIC:
 
 def main():
     gramatica = None
-    myfile = None
+    myfile = "gramatics.in"
 
     if(len(sys.argv)>=2):
         myfile = sys.argv[1]
